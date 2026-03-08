@@ -1,0 +1,4 @@
+variant,sci_name,seed,epochs,mAP50,mAP50_95,best_mAP50,best_mAP50_95,Params_M,FLOPs_G,RunTime_s,save_dir
+baseline,YOLO11n-Baseline,3,300,0.64167,0.50436,0.65479,0.51663,2.591,6.448,1821.91,/home/tb206/yolo_agri1/SCI1/outputs/plantdoc_seed3_compare_e300/SCI1_baseline_seed3_20260307_205503
+drbn_wiou_tlpn,DRBNWIoU-TLPN,3,300,0.60788,0.47668,0.61804,0.48276,2.293,6.257,1906.99,/home/tb206/yolo_agri1/SCI1/outputs/plantdoc_seed3_compare_e300/SCI1_drbn_wiou_tlpn_seed3_20260307_205503
+drbn_wiou,DRBNWIoU,3,300,0.60864,0.47576,0.62820,0.49342,2.655,6.546,1915.62,/home/tb206/yolo_agri1/SCI1/outputs/plantdoc_seed3_compare_e300/SCI1_drbn_wiou_seed3_20260307_205503

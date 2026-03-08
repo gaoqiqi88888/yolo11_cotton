@@ -1,0 +1,14 @@
+# Roboflow Universe: cotton-disease-detection-xevxs (v1)
+# Edit path to your local dataset root
+path: /absolute/path/to/cotton_xevxs_v1
+train: train/images
+val: valid/images
+test: test/images
+
+names:
+  0: blight
+  1: curl
+  2: grey mildew
+  3: healthy
+  4: leaf spot
+  5: wilt

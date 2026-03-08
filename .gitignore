@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# Training artifacts
+SCI1/outputs/
+runs/
+
+# Weights and large binaries
+*.pt
+*.onnx
+*.engine
+*.zip

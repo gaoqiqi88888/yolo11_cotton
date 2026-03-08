@@ -1,0 +1,4 @@
+variant,sci_name,seed,epochs,mAP50,mAP50_95,best_mAP50,best_mAP50_95,Params_M,FLOPs_G,RunTime_s,save_dir
+drbn_wiou,DRBNWIoU,3,300,0.74672,0.62765,0.76348,0.64490,2.655,6.546,1501.18,/home/tb206/yolo_agri1/SCI1/outputs/cotton_xevxs_v1_seed3_compare_e300/SCI1_drbn_wiou_seed3_20260307_190544
+drbn_wiou_tlpn,DRBNWIoU-TLPN,3,300,0.72556,0.60734,0.77295,0.64274,2.293,6.257,1487.18,/home/tb206/yolo_agri1/SCI1/outputs/cotton_xevxs_v1_seed3_compare_e300/SCI1_drbn_wiou_tlpn_seed3_20260307_190544
+baseline,YOLO11n-Baseline,3,300,0.72899,0.60154,0.76377,0.64184,2.591,6.448,1451.63,/home/tb206/yolo_agri1/SCI1/outputs/cotton_xevxs_v1_seed3_compare_e300/SCI1_baseline_seed3_20260307_190544

@@ -1,0 +1,14 @@
+# Edit path to your local dataset root
+path: /absolute/path/to/cotton_real
+train: images/train
+val: images/val
+
+names:
+  0: Aphids
+  1: Army worm
+  2: Bacterial blight
+  3: Cotton Boll Rot
+  4: Green Cotton Boll
+  5: Healthy
+  6: Powdery mildew
+  7: Target spot
