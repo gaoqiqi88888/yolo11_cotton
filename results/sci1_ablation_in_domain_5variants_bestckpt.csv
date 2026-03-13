@@ -1,0 +1,11 @@
+dataset,variant,n,best_mAP50_95_mean,best_mAP50_95_std,delta_vs_baseline
+cotton_real,baseline,3,0.865330,0.004443,0.000000
+cotton_real,drbn_only,3,0.869290,0.008438,0.003960
+cotton_real,wiou_only,3,0.872707,0.002651,0.007377
+cotton_real,drbn_wiou,3,0.873997,0.009577,0.008667
+cotton_real,drbn_wiou_tlpn,3,0.876463,0.013189,0.011133
+cotton_xevxs_v1,baseline,3,0.641050,0.010467,0.000000
+cotton_xevxs_v1,drbn_only,3,0.631987,0.023158,-0.009063
+cotton_xevxs_v1,wiou_only,3,0.631227,0.010991,-0.009823
+cotton_xevxs_v1,drbn_wiou,3,0.653800,0.018284,0.012750
+cotton_xevxs_v1,drbn_wiou_tlpn,3,0.649953,0.011554,0.008903

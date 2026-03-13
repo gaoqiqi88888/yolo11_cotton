@@ -6,6 +6,10 @@ __pycache__/
 SCI1/outputs/
 runs/
 
+# Local machine-specific configs and temp logs
+SCI1/configs/*_local.yaml
+*.log
+
 # Weights and large binaries
 *.pt
 *.onnx

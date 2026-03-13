@@ -183,6 +183,15 @@ def parse_args():
     parser.add_argument("--data", type=str, default=os.path.join(BACKUP_ROOT, "cotton.yaml"))
     parser.add_argument("--project", type=str, default=os.path.join(THIS_DIR, "outputs", "seed3_compare"))
     parser.add_argument("--force", action="store_true", help="Rerun even if entries already exist in trials.csv")
+    parser.add_argument(
+        "--variants",
+        type=str,
+        default="baseline,drbn_only,wiou_only,drbn_wiou,drbn_wiou_tlpn",
+        help=(
+            "Comma-separated variants to run. Supported: "
+            "baseline,drbn_only,wiou_only,drbn_wiou,drbn_wiou_tlpn"
+        ),
+    )
     return parser.parse_args()
 
 
@@ -194,26 +203,44 @@ def main():
     trials_csv = os.path.join(summary_dir, "trials.csv")
     summary_csv = os.path.join(summary_dir, "summary.csv")
 
-    variants: List[Variant] = [
-        Variant(
+    all_variants: Dict[str, Variant] = {
+        "baseline": Variant(
             name="baseline",
             sci_name="YOLO11n-Baseline",
             yaml_path=os.path.join(cfg_dir, "yolo11n_baseline.yaml"),
             use_wiou=False,
         ),
-        Variant(
+        "drbn_only": Variant(
+            name="drbn_only",
+            sci_name="DRBN-only",
+            yaml_path=os.path.join(cfg_dir, "DRBN_WIoU.yaml"),
+            use_wiou=False,
+        ),
+        "wiou_only": Variant(
+            name="wiou_only",
+            sci_name="WIoU-only",
+            yaml_path=os.path.join(cfg_dir, "yolo11n_baseline.yaml"),
+            use_wiou=True,
+        ),
+        "drbn_wiou": Variant(
             name="drbn_wiou",
             sci_name="DRBNWIoU",
             yaml_path=os.path.join(cfg_dir, "DRBN_WIoU.yaml"),
             use_wiou=True,
         ),
-        Variant(
+        "drbn_wiou_tlpn": Variant(
             name="drbn_wiou_tlpn",
             sci_name="DRBNWIoU-TLPN",
             yaml_path=os.path.join(cfg_dir, "DRBNWIoU_TLPN.yaml"),
             use_wiou=True,
         ),
-    ]
+    }
+
+    requested = [x.strip() for x in args.variants.split(",") if x.strip()]
+    bad = [x for x in requested if x not in all_variants]
+    if bad:
+        raise ValueError(f"Unknown variants: {bad}. Supported: {list(all_variants.keys())}")
+    variants: List[Variant] = [all_variants[x] for x in requested]
 
     os.makedirs(args.project, exist_ok=True)
     ensure_csv(trials_csv)
